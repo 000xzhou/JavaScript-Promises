@@ -1,5 +1,7 @@
 // callbacks and promises
 // Part 1: Number Facts
+const numFacts = document.getElementById("numFacts");
+
 let numbersAPI = "http://numbersapi.com/";
 
 function getRandomInt(max) {
@@ -12,5 +14,7 @@ for (let i = 1; i < 5; i++) {
 }
 
 Promise.all(fourFacts)
-  .then((numbers) => numbers.forEach((fact) => console.log(fact.data)))
+  .then((numbers) =>
+    numbers.forEach((fact) => (numFacts.innerHTML += `<li>${fact.data}</li>`))
+  )
   .catch((err) => console.log(err));
